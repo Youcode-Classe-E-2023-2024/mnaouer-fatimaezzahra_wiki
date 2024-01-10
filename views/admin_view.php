@@ -47,7 +47,7 @@
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
             <a href="index.html" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>ALPHADMIN</h3>
+                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>WIKI_ADMIN</h3>
             </a>
             <div class="navbar-nav w-100">
                 <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
@@ -99,7 +99,7 @@
                 <!--Profile-->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <span class="d-none d-lg-inline-flex"><?= $_SESSION['username'] ?></span>
+<!--                        <span class="d-none d-lg-inline-flex">--><?//= $_SESSION['username'] ?><!--</span>-->
                     </a>
                     <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                         <a href="#" class="dropdown-item">My Profile</a>
