@@ -25,5 +25,5 @@ $result = $db->query("SELECT * FROM users");
 //importe la data ligne par ligne
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     // Utilisez les données comme nécessaire
-    echo $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['role'] . '<br>';
+//    echo $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['role'] . '<br>';
 }
