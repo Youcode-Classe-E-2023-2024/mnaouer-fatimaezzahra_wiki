@@ -50,8 +50,21 @@
                 <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>WIKI_ADMIN</h3>
             </a>
             <div class="navbar-nav w-100">
-                <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="index.php?page=admin" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             </div>
+
+            <div class="navbar-nav w-100">
+                <a href="index.php?page=moderation" class="nav-item nav-link"><i class="fa-solid fa-newspaper"></i>Moderation</a>
+            </div>
+
+            <div class="navbar-nav w-100">
+                <a href="index.php?page=category" class="nav-item nav-link"><i class="fa-solid fa-list"></i>Category</a>
+            </div>
+
+            <div class="navbar-nav w-100">
+                <a href="index.php?page=tag" class="nav-item nav-link"><i class="fa-solid fa-tag"></i>Tags</a>
+            </div>
+
         </nav>
     </div>
     <!-- Sidebar End -->
@@ -153,31 +166,6 @@
         <!-- Sale & Revenue End -->
 
 
-        <!-- Sales Chart Start -->
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="col-sm-12 col-xl-6">
-                    <div class="bg-light text-center rounded p-4">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Worldwide Sales</h6>
-                            <a href=""></a>
-                        </div>
-                        <canvas id="worldwide-sales"></canvas>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-xl-6">
-                    <div class="bg-light text-center rounded p-4">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Salse & Revenue</h6>
-                            <a href="">Show All</a>
-                        </div>
-                        <canvas id="salse-revenue"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Sales Chart End -->
-
         <!-- LIST PRODUCT -->
         <div class="container-fluid pt-4 px-4">
             <div class="bg-light text-center rounded p-4">
@@ -260,17 +248,17 @@
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="./assets/lib/chart/chart.min.js"></script>
-<script src="./assets/lib/easing/easing.min.js"></script>
-<script src="./assets/lib/waypoints/waypoints.min.js"></script>
-<script src="./assets/lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="./assets/lib/tempusdominus/js/moment.min.js"></script>
-<script src="./assets/lib/tempusdominus/js/moment-timezone.min.js"></script>
-<script src="./assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="assets/lib/chart/chart.min.js"></script>
+<script src="assets/lib/easing/easing.min.js"></script>
+<script src="assets/lib/waypoints/waypoints.min.js"></script>
+<script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="assets/lib/tempusdominus/js/moment.min.js"></script>
+<script src="assets/lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
 <!-- Template Javascript -->
-<script src="./assets/js/main.js"></script>
-<script src="./assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/data.js"></script>
 </body>
 
 </html>
