@@ -131,12 +131,12 @@
                         <h6 class="mb-0">Category</h6>
                         <a href="">Show All</a>
                     </div>
+                    <form action="index.php?page=category" method="post">
                     <div class="d-flex mb-2">
-                        <input class="form-control bg-transparent" type="text" placeholder="Enter Category">
-                        <button type="button" class="btn btn-primary ms-2">Add</button>
+                        <input name="name" class="form-control bg-transparent" type="text" placeholder="Enter Category">
+                        <button type="submit" class="btn btn-primary ms-2">Add</button>
                     </div>
                     <div class="d-flex align-items-center border-bottom py-2">
-                        <!--                        <input class="form-check-input m-0" type="checkbox">-->
                         <div class="w-100 ms-3">
                             <div class="d-flex w-100 align-items-center justify-content-between">
                                 <span>Short Category goes here...</span>
@@ -144,6 +144,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
