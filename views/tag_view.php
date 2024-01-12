@@ -131,9 +131,11 @@
                         <h6 class="mb-0">Tags</h6>
                         <a href="">Show All</a>
                     </div>
+
+                    <form action="index.php?page=tag" method="post">
                     <div class="d-flex mb-2">
-                        <input class="form-control bg-transparent" type="text" placeholder="Enter tag">
-                        <button type="button" class="btn btn-primary ms-2">Add</button>
+                        <input name="name" class="form-control bg-transparent" type="text" placeholder="Enter tag">
+                        <button type="submit" class="btn btn-primary ms-2">Add</button>
                     </div>
                     <div class="d-flex align-items-center border-bottom py-2">
 <!--                        <input class="form-check-input m-0" type="checkbox">-->
@@ -144,6 +146,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
