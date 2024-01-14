@@ -7,6 +7,7 @@ function dd($var)
     print_r($var);
     echo '</code>';
     echo '</pre>';
+    die();
 }
 
 $dsn = 'mysql:host=localhost;dbname=wiki_db';
