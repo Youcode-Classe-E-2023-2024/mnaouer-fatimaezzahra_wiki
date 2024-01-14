@@ -1,16 +1,13 @@
 <?php
-if (isset ($_POST['first_name']) && !empty($_POST['first_name']) && ($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password']))
-
-
-//if ($_SERVER['REQUEST_METHOD'] === 'POST')
-{
-
-    // Instantier la classe utilisateur
-    include_once 'models/User.php';
+if (isset($_POST['register'])) {
     $user = new User();
+    extract($_POST);
 
-
-    $result = $user->register($_POST['first_name'],$_POST['last_name'],$_POST['email'], $_POST['password']);
+    $result = $user->register(
+        str_secure($first_name),
+        str_secure($last_name),
+        str_secure($email),
+        str_secure($password));
 
     if ($result) {
         header("Location:" . "index.php?page=login");
