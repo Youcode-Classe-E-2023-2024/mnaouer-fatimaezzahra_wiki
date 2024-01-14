@@ -153,12 +153,10 @@
                                     <div class="d-flex w-100 justify-content-between">
                                         <span><?php echo $tag['name'] ?></span>
                                         <div class="align-item-end">
-                                            <form action="index.php?page=category" method="Post">
-                                                <input type="hidden" name="id" value="<?php echo $tag['id'] ?>">
-                                                <button type="submit" name="edit" class="btn btn-sm"><i
-                                                            class="fa-solid fa-pen"></i></button>
-                                                <button type="submit" name="delete" class="btn btn-sm"><i
-                                                            class="fa fa-times"></i></button
+                                            <form action="index.php?page=tag" method="Post">
+                                                <a class="btn btn-sm" onclick="openModal(<?= $tag['id'] ?>, '<?= $tag['name'] ?>')"><i class="fa-solid fa-pen"></i></a>
+                                                <input name="id" type="hidden" value="<?php echo $tag['id'] ?>">
+                                                <button type="submit" name="delete" class="btn btn-sm"><i class="fa fa-times"></i></button
                                             </form>
                                         </div>
                                     </div>
@@ -166,7 +164,6 @@
                             <?php } ?>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -184,6 +181,42 @@
         <!-- Footer End -->
     </div>
     <!-- Content End -->
+
+    <dialog id="myModal">
+        <form action="index.php?page=category" method="post">
+            <div class="mb-3">
+                <label for="nameInput" class="form-label">Name</label>
+                <input name="name" type="text" class="form-control" id="nameInput" placeholder="Enter new name..">
+            </div>
+            <input type="hidden" id="inputIdValue">
+            <button class="btn btn-primary" type="submit" name="edit">Edit</button>
+        </form>
+    </dialog>
+    <script>
+        function openModal(id, name) {
+            var modal = document.getElementById('myModal');
+            var inputId = document.getElementById('inputIdValue');
+            var inputName = document.getElementById('nameInput');
+
+            inputId.value = id;
+            inputName.value = name;
+
+            modal.showModal();
+
+            // Add an event listener to close the modal when clicking outside of it
+            modal.addEventListener('click', function (event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.close();
+        }
+    </script>
+    <!-- Modal End -->
 
 
     <!-- Back to Top -->
