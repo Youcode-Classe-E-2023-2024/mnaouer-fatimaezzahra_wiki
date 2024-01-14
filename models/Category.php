@@ -27,4 +27,26 @@ class category
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function deleteCategory($id)
+    {
+        dd($id);
+        global $db;
+
+        $stmt = $db->prepare("DELETE FROM categories WHERE id = '$id'");
+
+        return $stmt->execute();
+    }
+
+    public function editCategory($id, $name)
+    {
+        global $db;
+
+        $stmt = $db->prepare("UPDATE categories SET name = '$name' WHERE id = '$id'");
+
+        return $stmt->execute();
+    }
+
+
+
 }
