@@ -175,10 +175,7 @@
     </div>
     <!-- Content End -->
 
-    <dialog id="editModal" style="height: 300px; width: 50%;">
-
-    </dialog>
-
+    <!-- Modal Start -->
     <dialog id="myModal">
         <form action="index.php?page=category" method="post">
             <div class="mb-3">
@@ -213,6 +210,7 @@
             modal.close();
         }
     </script>
+    <!-- Modal End -->
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
