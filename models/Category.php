@@ -6,7 +6,15 @@ class category
     public $name;
     public $create_at;
     public $edit_at;
+  
+    static function getAll()
+    {
+        global $db;
+        $result = $db->query("SELECT * FROM categories 
+         ORDER BY create_at DESC, edit_at;");
 
+        return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function addCategory($categoryName)
     {

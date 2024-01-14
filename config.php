@@ -1,30 +1,36 @@
 <?php
+session_start();
 
+/**
+ * Pour debuger.
+ * @param $var
+ * @return void
+ */
 function dd($var)
 {
     echo '<pre>';
     echo '<code>';
-    print_r($var);
+    var_dump($var);
     echo '</code>';
     echo '</pre>';
     die();
 }
 
-$dsn = 'mysql:host=localhost;dbname=wiki_db';
-$username = 'root';
-$password = '';
-
-//cette etape est faite pour afficher le message d'errer lors de non connection du base données
-try {
-    $db = new PDO($dsn, $username, $password);
-} catch (Exception $e) {
-    echo $e->getMessage();
+/**
+ * Securisation d'une chaine de caractere contre la faille XSS
+ * @param [type] $string
+ * @return string
+ */
+function str_secure($string){
+    return trim(htmlspecialchars($string));
 }
 
-$result = $db->query("SELECT * FROM users");
+const DSN = 'mysql:host=localhost;dbname=wiki_db';
+const USERNAME = 'root';
+const PASSWORD = '';
 
-//importe la data ligne par ligne
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    // Utilisez les données comme nécessaire
-//    echo $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['role'] . '<br>';
+try {
+    $db = new PDO(DSN, USERNAME, PASSWORD);
+} catch (Exception $e) {
+    echo $e->getMessage();
 }
