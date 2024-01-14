@@ -25,8 +25,12 @@
                 </div>
 
                 <div class="col-4 d-flex justify-content-end align-items-center">
+                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') : ?>
+                        <a class="btn btn-sm btn-outline-secondary ms-2" href="index.php?page=admin">Admin</a>
+                    <?php endif ?>
+
                     <?php if (isset($_SESSION['user_id'])) : ?>
-                        <a class="btn btn-sm btn-dark" href="index.php?page=editor">Create Article</a>
+                        <a class="btn btn-sm btn-dark ms-2" href="index.php?page=editor">Create Article</a>
                         <a class="btn btn-sm btn-outline-secondary ms-2" href="index.php?page=profile">Profile</a>
                     <?php else : ?>
                         <a class="btn btn-sm btn-outline-secondary ms-2" href="index.php?page=login">Sign in</a>
@@ -64,8 +68,13 @@
             <div class="position-sticky" style="top: 2rem;">
                 <?php if (isset($_SESSION['user_id']) && $article['owner_id'] == $_SESSION['user_id']) : ?>
                 <div class="p-4">
-                    <a class="btn btn-sm btn-secondary" href="index.php?page=editor&id=<?= $article['id'] ?>">Edit</a>
-                    <a onclick="deleteModal.showModal();" class="btn btn-sm btn-outline-danger">Delete</a>
+                    <form action="index.php?page=moderation">
+                        <?php if ($_SESSION['role'] == 'admin') : ?>
+                        <button class="btn btn-sm btn-outline-dark">Archive</button>
+                        <?php endif ?>
+                        <a class="btn btn-sm btn-secondary" href="index.php?page=editor&id=<?= $article['id'] ?>">Edit</a>
+                        <a onclick="deleteModal.showModal();" class="btn btn-sm btn-outline-danger">Delete</a>
+                    </form>
                 </div>
                 <?php endif ?>
 

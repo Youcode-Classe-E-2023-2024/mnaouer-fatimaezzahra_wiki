@@ -49,8 +49,12 @@
             </div>
 
             <div class="col-4 d-flex justify-content-end align-items-center">
+                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') : ?>
+                    <a class="btn btn-sm btn-outline-secondary ms-2" href="index.php?page=admin">Admin</a>
+                <?php endif ?>
+
                 <?php if (isset($_SESSION['user_id'])) : ?>
-                    <a class="btn btn-sm btn-dark" href="index.php?page=editor">Create Article</a>
+                    <a class="btn btn-sm btn-dark ms-2" href="index.php?page=editor">Create Article</a>
                     <a class="btn btn-sm btn-outline-secondary ms-2" href="index.php?page=profile">Profile</a>
                 <?php else : ?>
                     <a class="btn btn-sm btn-outline-secondary ms-2" href="index.php?page=login">Sign in</a>
