@@ -30,10 +30,10 @@ class category
 
     public function deleteCategory($id)
     {
-        dd($id);
         global $db;
 
-        $stmt = $db->prepare("DELETE FROM categories WHERE id = '$id'");
+        $stmt = $db->prepare("DELETE FROM categories WHERE id = ?");
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
 
         return $stmt->execute();
     }
@@ -42,11 +42,10 @@ class category
     {
         global $db;
 
-        $stmt = $db->prepare("UPDATE categories SET name = '$name' WHERE id = '$id'");
+        $stmt = $db->prepare("UPDATE categories SET name = ? WHERE id = ?");
+        $stmt->bindParam(1, $name);
+        $stmt->bindParam(2, $id, PDO::PARAM_INT);
 
         return $stmt->execute();
     }
-
-
-
 }

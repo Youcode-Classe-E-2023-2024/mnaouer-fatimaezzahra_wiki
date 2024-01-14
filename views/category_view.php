@@ -132,10 +132,11 @@
                         <h6 class="mb-0">Category</h6>
                         <a href="index.php?page=admin">Show All</a>
                     </div>
-                    <div class="d-flex mb-2">
-                        <input name="name" class="form-control bg-transparent" type="text"
-                               placeholder="Enter Category">
-                        <button type="submit" class="btn btn-primary ms-2">Add</button>
+                    <div>
+                        <form class="d-flex mb-2" action="index.php?page=category" method="POST">
+                            <input name="name" class="form-control bg-transparent" type="text" placeholder="Enter Category">
+                            <button name="create" type="submit" class="btn btn-primary ms-2">Add</button>
+                        </form>
                     </div>
 
                     <div class="d-flex align-items-center border-bottom py-2">
@@ -145,10 +146,10 @@
                                     <div class="d-flex w-100 justify-content-between">
                                         <span><?php echo $category['name'] ?></span>
                                         <div class="align-item-end">
-                                            <form action="index.php?page=category" method="Post">
-                                                <a class="btn btn-sm" onclick="editModal.showModal()"><i class="fa-solid fa-pen"></i></a>
+                                            <form action="index.php?page=category" method="POST">
+                                                <a class="btn btn-sm" onclick="openModal(<?= $category['id'] ?>)"><i class="fa-solid fa-pen"></i></a>
+                                                <input name="id" type="hidden" value="<?php echo $category['id'] ?>">
                                                 <button type="submit" name="delete" class="btn btn-sm"><i class="fa fa-times"></i></button
-                                                <input type="hidden" name="id" value="<?php echo $category['id'] ?>">
                                             </form>
                                         </div>
                                     </div>
@@ -177,6 +178,38 @@
     <dialog id="editModal" style="height: 300px; width: 50%;">
 
     </dialog>
+
+    <dialog id="myModal">
+        <form action="index.php?page=category" method="post">
+            <div class="mb-3">
+                <label for="nameInput" class="form-label">Name</label>
+                <input name="name" type="text" class="form-control" id="nameInput" placeholder="Enter new name..">
+            </div>
+            <input type="hidden" id="inputIdValue">
+            <button class="btn btn-primary" type="submit" name="edit">Edit</button>
+        </form>
+    </dialog>
+    <script>
+        function openModal(id) {
+            var modal = document.getElementById('myModal');
+            var inputId = document.getElementById('inputIdValue');
+            inputId.value = id;
+
+            modal.showModal();
+
+            // Add an event listener to close the modal when clicking outside of it
+            modal.addEventListener('click', function (event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.close();
+        }
+    </script>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
