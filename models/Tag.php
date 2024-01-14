@@ -4,6 +4,16 @@ class Tag
 {
     private $id;
     public $name;
+
+    static function countTags()
+    {
+        global $db;
+
+        $result = $db->query('SELECT count(*) AS count FROM tags;');
+        $tags_count = $result->fetch();
+
+        return $tags_count['count'];
+    }
   
     static function getAll()
     {

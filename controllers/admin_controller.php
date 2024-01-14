@@ -1,6 +1,6 @@
 <?php
 
-include_once 'models/Category.php';
-$category = new Category();
-
-$categories = $category ->AllCategory();
+$users_count = User::countUsers();
+$articles_count = Article::countArticles();
+$categories_count = Category::countCategories();
+$tags_count = Tag::countTags();

@@ -2,6 +2,16 @@
 
 class Article
 {
+    static function countArticles()
+    {
+        global $db;
+
+        $result = $db->query('SELECT count(*) AS count FROM articles;');
+        $articles_count = $result->fetch();
+
+        return $articles_count['count'];
+    }
+
     static function getAll()
     {
         global $db;

@@ -6,7 +6,17 @@ class category
     public $name;
     public $create_at;
     public $edit_at;
-  
+
+    static function countCategories()
+    {
+        global $db;
+
+        $result = $db->query('SELECT count(*) AS count FROM categories;');
+        $categorie_count = $result->fetch();
+
+        return $categorie_count['count'];
+    }
+
     static function getAll()
     {
         global $db;

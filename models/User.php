@@ -8,6 +8,16 @@ class User
     public $last_name;
     public $role;
 
+    static function countUsers()
+    {
+        global $db;
+
+        $result = $db->query('SELECT count(*) AS count FROM users;');
+        $users_count = $result->fetch();
+
+        return $users_count['count'];
+    }
+
     function register($first_name, $last_name, $email, $password)
     {
         global $db;
