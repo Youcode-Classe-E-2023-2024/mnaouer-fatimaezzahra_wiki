@@ -137,33 +137,36 @@
                         <a href="index.php?page=admin">Show All</a>
                     </div>
 
-                    <form action="index.php?page=tag" method="post">
-                        <div class="d-flex mb-2">
+                    <div>
+                        <form class="d-flex mb-2" action="index.php?page=tag" method="post">
                             <input name="name" class="form-control bg-transparent" type="text"
                                    placeholder="Enter Category">
-                            <button type="submit" class="btn btn-primary ms-2">Add</button>
-                        </div>
+                            <button name="create" type="submit" class="btn btn-primary ms-2">Add</button>
+                        </form>
+                    </div>
 
-                        <div class="d-flex align-items-center border-bottom py-2">
-                            <div class="w-100 ms-3">
-                                <?php foreach ($tags as $tag) { ?>
-                                    <div class="d-flex flex-column w-100 justify-content-between">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <span><?php echo $tag['name'] ?></span>
-                                            <div class="align-item-end">
-                                                <form action="index.php?page=category" method="Post">
-                                                    <input type="hidden" name="id" value="<?php echo $tag['id'] ?>">
-                                                    <button type="submit" name="edit" class="btn btn-sm"><i
-                                                                class="fa-solid fa-pen"></i></button>
-                                                    <button type="submit" name="delete" class="btn btn-sm"><i class="fa fa-times"></i></button
-                                                </form>
-                                            </div>
+
+                    <div class="d-flex align-items-center border-bottom py-2">
+                        <div class="w-100 ms-3">
+                            <?php foreach ($tags as $tag) { ?>
+                                <div class="d-flex flex-column w-100 justify-content-between">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <span><?php echo $tag['name'] ?></span>
+                                        <div class="align-item-end">
+                                            <form action="index.php?page=category" method="Post">
+                                                <input type="hidden" name="id" value="<?php echo $tag['id'] ?>">
+                                                <button type="submit" name="edit" class="btn btn-sm"><i
+                                                            class="fa-solid fa-pen"></i></button>
+                                                <button type="submit" name="delete" class="btn btn-sm"><i
+                                                            class="fa fa-times"></i></button
+                                            </form>
                                         </div>
                                     </div>
-                                <?php } ?>
-                            </div>
+                                </div>
+                            <?php } ?>
                         </div>
-                    </form>
+                    </div>
+
                 </div>
             </div>
         </div>

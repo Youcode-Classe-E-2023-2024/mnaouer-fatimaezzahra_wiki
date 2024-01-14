@@ -36,8 +36,8 @@ class Tag
     {
         global $db;
 
-        $stmt = $db->prepare("DELETE FROM tags WHERE id = '$id'");
-
+        $stmt = $db->prepare("DELETE FROM tags WHERE id = ?");
+        $stmt->bindParam(1, $id);
         return $stmt->execute();
     }
 
@@ -45,8 +45,9 @@ class Tag
     {
         global $db;
 
-        $stmt = $db->prepare("UPDATE tags SET name = '$name' WHERE id = '$id'");
-
+        $stmt = $db->prepare("UPDATE tags SET name = ? WHERE id = ?");
+        $stmt->bindParam(1, $name);
+        $stmt->bindParam(2, $id);
         return $stmt->execute();
     }
 }

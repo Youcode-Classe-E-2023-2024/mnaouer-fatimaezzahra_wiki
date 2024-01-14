@@ -1,17 +1,14 @@
 <?php
 
 // Assurez-vous que le champ 'name' est présent dans la requête
-if (isset($_POST["name"])&& !empty($_POST['name'])) {
+if (isset($_POST['create'])) {
     // Récupérez la valeur du champ 'name'
     $tagName = $_POST["name"];
-//echo ($_POST["name"]);
+
     include_once 'models/Tag.php';
     $tag = new Tag();
 
     $result = $tag->addTag($tagName);
-
-    // Exemple : affichez le nom de la tag
-    echo "Tag Name: " . $tagName;
 }
 
 
@@ -20,7 +17,7 @@ $tag = new Tag();
 
 $tags = $tag ->AllTags();
 
-if (isset($_POST["delete"])&& !empty($_POST['id']))
+if (isset($_POST["delete"]))
 {
     $id = $_POST['id'];
 
@@ -33,7 +30,7 @@ if (isset($_POST["delete"])&& !empty($_POST['id']))
     }
 }
 //on verifier si on a clicker sur le boutton
-if (isset($_POST["edit"])&& !empty($_POST['id']) && !empty($_POST['name']))
+if (isset($_POST["edit"]))
 {
     $id = $_POST['id'];
     $name = $_POST['name'];
