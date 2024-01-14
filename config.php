@@ -21,8 +21,16 @@ function dd($var)
  * @param [type] $string
  * @return string
  */
-function str_secure($string){
+function str_secure($string)
+{
     return trim(htmlspecialchars($string));
+}
+
+function admin_secure()
+{
+    if ($_SESSION['role'] != 'admin') {
+        header('Location: index.php?page=home');
+    }
 }
 
 const DSN = 'mysql:host=localhost;dbname=wiki_db';

@@ -1,5 +1,7 @@
 <?php
 
+admin_secure();
+
 // Assurez-vous que le champ 'name' est présent dans la requête
 if (isset($_POST['create'])) {
     // Récupérez la valeur du champ 'name'

@@ -1,5 +1,7 @@
 <?php
 
+admin_secure();
+
 $articles = Article::getAll();
 
 if(isset($_POST["archive"])){

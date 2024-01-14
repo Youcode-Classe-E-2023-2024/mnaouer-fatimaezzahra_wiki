@@ -1,5 +1,7 @@
 <?php
 
+admin_secure();
+
 include_once 'models/Category.php';
 $category = new Category();
 
