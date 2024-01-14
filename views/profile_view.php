@@ -66,7 +66,7 @@
             <div class="position-sticky" style="top: 2rem;">
                 <div class="p-4 bg-light rounded">
                     <small><?= $profile['role'] ?></small>
-                    <h5><?= $profile['first_name'] . $profile['last_name'] ?></h5>
+                    <h5><?= $profile['first_name'] . ' ' . $profile['last_name'] ?></h5>
                     <p><?= $profile['email'] ?></p>
                     <form action="index.php?page=login" method="POST">
                         <button type="submit" name="logout" class="btn btn-sm btn-outline-secondary">Logout</button>

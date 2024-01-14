@@ -15,7 +15,7 @@ if (isset($_POST['delete'])) {
 if (isset($_GET['id'])) {
     $article = Article::getArticle($_GET['id']);
 
-    $full_name = $article['first_name'] . $article['last_name'];
+    $full_name = $article['first_name'] . ' ' . $article['last_name'];
 
     $date = date('M d, Y', strtotime($article['create_at']));
 
