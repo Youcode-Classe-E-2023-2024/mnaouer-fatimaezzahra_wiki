@@ -68,9 +68,10 @@
             <div class="position-sticky" style="top: 2rem;">
                 <?php if (isset($_SESSION['user_id']) && $article['owner_id'] == $_SESSION['user_id']) : ?>
                 <div class="p-4">
-                    <form action="index.php?page=moderation">
+                    <form action="index.php?page=moderation" method="POST">
                         <?php if ($_SESSION['role'] == 'admin') : ?>
-                        <button class="btn btn-sm btn-outline-dark">Archive</button>
+                            <button name="archive" class="btn btn-sm btn-outline-dark">Archive</button>
+                            <input name="id" type="hidden" value="<?= $article['id'] ?>">
                         <?php endif ?>
                         <a class="btn btn-sm btn-secondary" href="index.php?page=editor&id=<?= $article['id'] ?>">Edit</a>
                         <a onclick="deleteModal.showModal();" class="btn btn-sm btn-outline-danger">Delete</a>

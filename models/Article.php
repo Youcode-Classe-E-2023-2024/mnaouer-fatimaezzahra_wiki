@@ -155,4 +155,16 @@ class Article
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+    static function archiveArticle($id)
+    {
+        global $db;
+
+        $stmt = $db->prepare("UPDATE articles
+                    SET status = 'archived' WHERE id = ?;");
+        $stmt->bindParam(1, $id);
+        return $stmt->execute();
+    }
 }
+
+
