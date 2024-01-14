@@ -1,18 +1,25 @@
 <?php
-if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password']))
+if (isset($_POST['login']))
 {
-
-    // Instantier la classe utilisateur
-    include_once 'models/User.php';
     $user = new User();
 
     $result = $user->login($_POST['email'], $_POST['password']);
 
-    if (isset($result)) {
-        $_SESSION['user_id'] = $result['users_id'];
-        $_SESSION['first_name'] = $result['first_name'];
-        header("Location:" . "index.php?page=home");
+    if ($result) {
+        $_SESSION['user_id'] = $user->id;
+        $_SESSION['full_name'] = $user->first_name . ' ' . $user->last_name;
+        if ($user->role == 'admin')
+        {
+            header("Location:" . "index.php?page=admin");
+        } else {
+            header("Location:" . "index.php?page=home");
+        }
     } else {
         header("Location:" . "index.php?page=login");
     }
+}
+
+if (isset($_POST['logout']))
+{
+    session_destroy();
 }
