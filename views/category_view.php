@@ -134,7 +134,7 @@
                     </div>
                     <div>
                         <form class="d-flex mb-2" action="index.php?page=category" method="POST">
-                            <input name="name" class="form-control bg-transparent" type="text" placeholder="Enter Category">
+                            <input name="name" class="form-control bg-transparent" type="text" placeholder="Enter Category" required>
                             <button name="create" type="submit" class="btn btn-primary ms-2">Add</button>
                         </form>
                     </div>
@@ -147,7 +147,7 @@
                                         <span><?php echo $category['name'] ?></span>
                                         <div class="align-item-end">
                                             <form action="index.php?page=category" method="POST">
-                                                <a class="btn btn-sm" onclick="openModal(<?= $category['id'] ?>)"><i class="fa-solid fa-pen"></i></a>
+                                                <a class="btn btn-sm" onclick="openModal(<?= $category['id'] ?>, '<?= $category['name'] ?>')"><i class="fa-solid fa-pen"></i></a>
                                                 <input name="id" type="hidden" value="<?php echo $category['id'] ?>">
                                                 <button type="submit" name="delete" class="btn btn-sm"><i class="fa fa-times"></i></button
                                             </form>
@@ -190,10 +190,13 @@
         </form>
     </dialog>
     <script>
-        function openModal(id) {
+        function openModal(id, name) {
             var modal = document.getElementById('myModal');
             var inputId = document.getElementById('inputIdValue');
+            var inputName = document.getElementById('nameInput');
+
             inputId.value = id;
+            inputName.value = name;
 
             modal.showModal();
 
