@@ -8,6 +8,7 @@ if (isset($_POST['login']))
     if ($result) {
         $_SESSION['user_id'] = $user->id;
         $_SESSION['full_name'] = $user->first_name . ' ' . $user->last_name;
+        $_SESSION['role'] = $user->role;
         if ($user->role == 'admin')
         {
             header("Location:" . "index.php?page=admin");
