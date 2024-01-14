@@ -2,6 +2,11 @@
 
 include_once 'config.php';
 
+// inclure toute les classes disponible dans le dossier models
+spl_autoload_register(function ($models) {
+    include_once 'models/' . $models . '.php';
+});
+
 if (isset($_GET['page']))
 {
     include_once 'controllers/' . $_GET['page'] . '_controller.php';
