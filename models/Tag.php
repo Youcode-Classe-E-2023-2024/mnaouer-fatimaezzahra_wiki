@@ -10,9 +10,35 @@ class Tag
         global $db;
 
         $stmt = $db->prepare("INSERT INTO tags (name) VALUES (?);");
-        $stmt->bindValue(bindParam1, $tagName);
+        $stmt->bindValue(1, $tagName);
 
         return $stmt->execute();
     }
 
+    function AllTags()
+    {
+        global $db;
+
+        $stmt = $db->query("SELECT * FROM tags");
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function deleteTags($id)
+    {
+        global $db;
+
+        $stmt = $db->prepare("DELETE FROM tags WHERE id = '$id'");
+
+        return $stmt->execute();
+    }
+
+    public function editTag($id, $name)
+    {
+        global $db;
+
+        $stmt = $db->prepare("UPDATE tags SET name = '$name' WHERE id = '$id'");
+
+        return $stmt->execute();
+    }
 }
