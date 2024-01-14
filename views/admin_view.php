@@ -165,72 +165,24 @@
         </div>
         <!-- Sale & Revenue End -->
 
-
-        <!-- LIST PRODUCT -->
+        <!-- Chart Start -->
         <div class="container-fluid pt-4 px-4">
-            <div class="bg-light text-center rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">List Categories</h6>
-                    <a href="">Add Category</a>
+            <div class="row g-4">
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-light rounded h-100 p-4">
+                        <h6 class="mb-4">Multiple Line Chart</h6>
+                        <canvas id="salse-revenue"></canvas>
+                    </div>
                 </div>
-                <div class="table-responsive">
-                    <table class="table text-start align-middle table-bordered table-hover mb-0" id="productTable">
-                        <thead>
-                        <tr class="text-dark">
-                            <!--                            <th scope="col"><input class="form-check-input" type="checkbox"></th>-->
-                            <th scope="col">IdCategory</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Create At</th>
-                            <th scope="col">Edit At</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <tr>
-                            <td><input class="form-check-input" type="checkbox"></td>
-                            <td>01 Jan 2045</td>
-                            <td>INV-0123</td>
-                            <td>Jhon Doe</td>
-                            <td>$123</td>
-                            <td>Paid</td>
-                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                        </tr>
-
-                        </tbody>
-                    </table>
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-light rounded h-100 p-4">
+                        <h6 class="mb-4">Multiple Bar Chart</h6>
+                        <canvas id="worldwide-sales"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Recent Sales End -->
-
-        <!-- LIST USER -->
-        <div class="container-fluid pt-4 px-4">
-            <div class="bg-light text-center rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">List User</h6>
-                    <a href="">Add User</a>
-                </div>
-                <div class="table-responsive">
-                    <table class="table text-start align-middle table-bordered table-hover mb-0" id="userTable">
-                        <thead>
-                        <tr class="text-dark">
-                            <!--                            <th scope="col"><input class="form-check-input" type="checkbox"></th>-->
-                            <th scope="col">IdUser</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                        </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <!-- Recent Sales End -
+        <!-- Chart End -->
 
         <!-- Footer Start -->
         <div class="container-fluid pt-4 px-4">
