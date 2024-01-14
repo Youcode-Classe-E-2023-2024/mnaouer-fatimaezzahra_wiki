@@ -189,7 +189,7 @@
             <div class="bg-light rounded-top p-4">
                 <div class="row">
                     <div class="col-12 col-sm-6 text-center text-sm-start">
-                        &copy; <a href="#">Alpha</a>, All Right Reserved.
+                        <p class="mt-5 mb-3 text-muted">&copy; WIKI/2023–2024</p>
                     </div>
                 </div>
             </div>
