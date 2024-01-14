@@ -13,7 +13,9 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -35,7 +37,8 @@
 <body>
 <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner"
+         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
@@ -50,7 +53,8 @@
                 <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>WIKI_ADMIN</h3>
             </a>
             <div class="navbar-nav w-100">
-                <a href="index.php?page=admin" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="index.php?page=admin" class="nav-item nav-link active"><i
+                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             </div>
 
             <div class="navbar-nav w-100">
@@ -112,7 +116,8 @@
                 <!--Profile-->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <!--                        <span class="d-none d-lg-inline-flex">--><?//= $_SESSION['username'] ?><!--</span>-->
+                        <!--                        <span class="d-none d-lg-inline-flex">-->
+                        <? //= $_SESSION['username'] ?><!--</span>-->
                     </a>
                     <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                         <a href="#" class="dropdown-item">My Profile</a>
@@ -129,23 +134,35 @@
                 <div class="h-100 bg-light rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Tags</h6>
-                        <a href="">Show All</a>
+                        <a href="index.php?page=admin">Show All</a>
                     </div>
 
                     <form action="index.php?page=tag" method="post">
-                    <div class="d-flex mb-2">
-                        <input name="name" class="form-control bg-transparent" type="text" placeholder="Enter tag">
-                        <button type="submit" class="btn btn-primary ms-2">Add</button>
-                    </div>
-                    <div class="d-flex align-items-center border-bottom py-2">
-<!--                        <input class="form-check-input m-0" type="checkbox">-->
-                        <div class="w-100 ms-3">
-                            <div class="d-flex w-100 align-items-center justify-content-between">
-                                <span>Short tag goes here...</span>
-                                <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                        <div class="d-flex mb-2">
+                            <input name="name" class="form-control bg-transparent" type="text"
+                                   placeholder="Enter Category">
+                            <button type="submit" class="btn btn-primary ms-2">Add</button>
+                        </div>
+
+                        <div class="d-flex align-items-center border-bottom py-2">
+                            <div class="w-100 ms-3">
+                                <?php foreach ($tags as $tag) { ?>
+                                    <div class="d-flex flex-column w-100 justify-content-between">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <span><?php echo $tag['name'] ?></span>
+                                            <div class="align-item-end">
+                                                <form action="index.php?page=category" method="Post">
+                                                    <input type="hidden" name="id" value="<?php echo $tag['id'] ?>">
+                                                    <button type="submit" name="edit" class="btn btn-sm"><i
+                                                                class="fa-solid fa-pen"></i></button>
+                                                    <button type="submit" name="delete" class="btn btn-sm"><i class="fa fa-times"></i></button
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
-                    </div>
                     </form>
                 </div>
             </div>
@@ -156,7 +173,7 @@
             <div class="bg-light rounded-top p-4">
                 <div class="row">
                     <div class="col-12 col-sm-6 text-center text-sm-start">
-                        &copy; <a href="#">Alpha</a>, All Right Reserved.
+                        <p class="mt-5 mb-3 text-muted">&copy; WIKI/2023–2024</p>
                     </div>
                 </div>
             </div>
@@ -183,7 +200,7 @@
 
 <!-- Template Javascript -->
 <script src="assets/js/main.js"></script>
-<script src="assets/js/data.js"></script>
+<script src="assets/js/modal.js"></script>
 </body>
 
 </html>

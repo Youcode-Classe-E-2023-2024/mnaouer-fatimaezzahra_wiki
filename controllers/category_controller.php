@@ -1,16 +1,50 @@
 <?php
 
-    // Assurez-vous que le champ 'name' est présent dans la requête
-    if (isset($_POST["name"])&& !empty($_POST['name'])) {
-        // Récupérez la valeur du champ 'name'
-        $categoryName = $_POST["name"];
+include_once 'models/Category.php';
+$category = new Category();
 
-        include_once 'models/Category.php';
-        $category = new Category();
+$categories = $category->AllCategory();
 
-        $result = $category->addCategory($categoryName);
+// Assurez-vous que le champ 'name' est présent dans la requête
+if (isset($_POST["create"])) {
+    // Récupérez la valeur du champ 'name'
+    $categoryName = $_POST["name"];
 
-        // Exemple : affichez le nom de la catégorie
-        echo "Category Name: " . $categoryName;
+    if($category->addCategory($categoryName))
+    {
+        header("Location:" . "index.php?page=category");
+    }else
+    {
+        header("Location:" . "index.php?page=admin&STATUS=error");
     }
+}
+
+if (isset($_POST["delete"]))
+{
+    $id = $_POST['id'];
+
+    if($category->deleteCategory($id))
+    {
+        header("Location:" . "index.php?page=category");
+    }else
+    {
+        header("Location:" . "index.php?page=admin&STATUS=error");
+    }
+}
+//on verifier si on a clicker sur le boutton
+if (isset($_POST["edit"]))
+{
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+
+    if($category ->editCategory($id, $name))
+    {
+        header("Location:" . "index.php?page=category");
+    }else
+    {
+        header("Location:" . "index.php?page=admin&STATUS=error");
+    }
+}
+
+
 
